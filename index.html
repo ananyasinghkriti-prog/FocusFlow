@@ -1,0 +1,309 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f6f7fb">
+    <meta name="description" content="FocusFlow — a calm, simple space to plan study sessions and track academic deadlines.">
+    <title>FocusFlow — Study Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-shell">
+        <aside class="sidebar" aria-label="Main navigation">
+
+            <a class="brand" href="#dashboard" aria-label="FocusFlow home">
+                <img
+                    src="focusflow-logo.png"
+                    alt="FocusFlow Logo"
+                    style="width: 180px; height: auto; max-width: 100%;"
+                >
+            </a>
+
+            <div class="sidebar-label">WORKSPACE</div>
+
+            <nav class="primary-nav">
+                <a class="nav-link active" href="#dashboard">
+                    <span class="nav-icon" aria-hidden="true">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a class="nav-link" href="#schedule">
+                    <span class="nav-icon" aria-hidden="true">◷</span>
+                    <span>Study schedule</span>
+                </a>
+
+                <a class="nav-link" href="#deadlines">
+                    <span class="nav-icon" aria-hidden="true">▤</span>
+                    <span>Deadlines</span>
+                </a>
+
+                <a class="nav-link" href="#productivity">
+                    <span class="nav-icon" aria-hidden="true">↗</span>
+                    <span>Productivity</span>
+                </a>
+            </nav>
+
+            <div class="sidebar-note">
+                <span class="note-dot" aria-hidden="true"></span>
+                <p>A little progress each day adds up.</p>
+            </div>
+
+            <div class="sidebar-footer">FOCUS ON WHAT MATTERS</div>
+        </aside>
+
+        <div class="page-area">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR PERSONAL WORKSPACE</p>
+                    <h1>Study dashboard</h1>
+                </div>
+
+                <a class="topbar-link" href="#schedule">
+                    ＋ <span>Plan a session</span>
+                </a>
+            </header>
+
+            <main class="content">
+
+                <!-- DASHBOARD -->
+                <section id="dashboard" class="dashboard-section" aria-labelledby="dashboard-title">
+
+                    <div class="section-heading welcome-heading">
+                        <div>
+                            <p class="eyebrow">OVERVIEW</p>
+                            <h2 id="dashboard-title">Welcome back</h2>
+                            <p class="section-description">Here's a quick look at your study progress.</p>
+                        </div>
+
+                        <span class="today-chip">Make today count</span>
+                    </div>
+
+                    <div class="stats-container">
+
+                        <article class="stat-card">
+                            <div class="stat-topline">
+                                <span class="stat-icon blue" aria-hidden="true">▦</span>
+                                <span class="stat-caption">ALL TIME</span>
+                            </div>
+                            <h3>Total sessions</h3>
+                            <p class="stat-value" id="total-sessions">0</p>
+                            <p class="stat-footnote">Sessions planned</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-topline">
+                                <span class="stat-icon green" aria-hidden="true">✓</span>
+                                <span class="stat-caption">COMPLETED</span>
+                            </div>
+                            <h3>Completed sessions</h3>
+                            <p class="stat-value" id="completed-sessions">0</p>
+                            <p class="stat-footnote">Good work, keep it up</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-topline">
+                                <span class="stat-icon amber" aria-hidden="true">◷</span>
+                                <span class="stat-caption">TO DO</span>
+                            </div>
+                            <h3>Pending sessions</h3>
+                            <p class="stat-value" id="pending-sessions">0</p>
+                            <p class="stat-footnote">Waiting to be completed</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-topline">
+                                <span class="stat-icon violet" aria-hidden="true">▤</span>
+                                <span class="stat-caption">UP NEXT</span>
+                            </div>
+                            <h3>Upcoming deadlines</h3>
+                            <p class="stat-value" id="upcoming-deadlines">0</p>
+                            <p class="stat-footnote">Keep an eye on due dates</p>
+                        </article>
+
+                    </div>
+                </section>
+
+                <div class="workspace-grid">
+
+                    <!-- STUDY SESSIONS -->
+                    <section id="schedule" class="panel" aria-labelledby="schedule-title">
+
+                        <div class="panel-heading">
+                            <div class="panel-icon blue" aria-hidden="true">◷</div>
+                            <div>
+                                <h2 id="schedule-title">Plan a study session</h2>
+                                <p class="section-description">Set aside time for focused learning.</p>
+                            </div>
+                        </div>
+
+                        <form id="study-form" class="form-grid">
+
+                            <div class="form-field full-width">
+                                <label for="subject">Subject name</label>
+                                <input type="text" id="subject" name="subject" placeholder="e.g. JavaScript" autocomplete="off" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="study-date">Study date</label>
+                                <input type="date" id="study-date" name="study-date" required>
+                            </div>
+
+                            <div class="form-field">
+                                <label for="study-time">Start time</label>
+                                <input type="time" id="study-time" name="study-time" required>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <label for="duration">Duration <span class="label-hint">(minutes)</span></label>
+                                <input type="number" id="duration" name="duration" placeholder="60" min="1" max="1440" required>
+                            </div>
+
+                            <div class="form-actions full-width">
+                                <button class="button button-primary" type="submit">＋ Add study session</button>
+                            </div>
+
+                        </form>
+
+                        <div class="session-filters">
+
+                            <button type="button" class="button button-primary" onclick="filterSessions('all')">
+                                All
+                            </button>
+
+                            <button type="button" class="button button-secondary" onclick="filterSessions('pending')">
+                                Pending
+                            </button>
+
+                            <button type="button" class="button button-secondary" onclick="filterSessions('completed')">
+                                Completed
+                            </button>
+
+                        </div>
+
+                        <div id="sessions-list"></div>
+
+                    </section>
+
+                    <!-- DEADLINES -->
+                    <section id="deadlines" class="panel" aria-labelledby="deadlines-title">
+
+                        <div class="panel-heading">
+                            <div class="panel-icon violet" aria-hidden="true">▤</div>
+                            <div>
+                                <h2 id="deadlines-title">Add a deadline</h2>
+                                <p class="section-description">Keep important academic work on track.</p>
+                            </div>
+                        </div>
+
+                        <form id="deadline-form" class="form-grid">
+
+                            <div class="form-field full-width">
+                                <label for="task-name">Task name</label>
+                                <input type="text" id="task-name" name="task-name" placeholder="e.g. Maths assignment" autocomplete="off" required>
+                            </div>
+
+                            <!-- NEW SUBJECT FIELD -->
+                            <div class="form-field full-width">
+                                <label for="deadline-subject">Subject</label>
+                                <input type="text" id="deadline-subject" name="deadline-subject" placeholder="e.g. Physics" autocomplete="off" required>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <label for="deadline-date">Due date</label>
+                                <input type="date" id="deadline-date" name="deadline-date" required>
+                            </div>
+
+                            <div class="form-field full-width">
+                                <label for="task-type">Task type</label>
+                                <select id="task-type" name="task-type" required>
+                                    <option value="" disabled selected>Select a task type</option>
+                                    <option value="Assignment">Assignment</option>
+                                    <option value="Examination">Examination</option>
+                                    <option value="Project">Project</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-actions full-width">
+                                <button class="button button-secondary" type="submit">＋ Add deadline</button>
+                            </div>
+
+                        </form>
+
+                        <div id="deadlines-list"></div>
+
+                    </section>
+
+                </div>
+
+                <!-- SUBJECT SUMMARY -->
+                <section class="panel" id="subject-summary">
+
+                    <div class="panel-heading">
+                        <div class="panel-icon blue">▦</div>
+
+                        <div>
+                            <h2>Subject-wise Summary</h2>
+                            <p class="section-description">
+                                Track your study sessions and deadlines in each subject.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div id="subject-summary-list"></div>
+
+                </section>
+
+                <!-- PRODUCTIVITY -->
+                <section id="productivity" class="panel productivity-panel" aria-labelledby="productivity-title">
+
+                    <div class="productivity-copy">
+
+                        <div class="panel-heading compact-heading">
+                            <div class="panel-icon green" aria-hidden="true">↗</div>
+
+                            <div>
+                                <h2 id="productivity-title">Your productivity</h2>
+                                <p class="section-description">Progress is built one completed session at a time.</p>
+                            </div>
+                        </div>
+
+                        <p class="progress-message">Stay consistent. You're making time for what matters.</p>
+
+                    </div>
+
+                    <div class="progress-area">
+
+                        <div class="progress-label-row">
+                            <span>Overall study progress</span>
+                            <strong id="progress-percentage">0%</strong>
+                        </div>
+
+                        <progress id="study-progress" value="0" max="100">0%</progress>
+
+                        <p class="progress-caption">
+                            <span id="progress-completed">0</span> completed out of
+                            <span id="progress-total">0</span> sessions
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <footer class="page-footer">
+                    <span>FocusFlow</span>
+                    <span>Plan better. Study smarter.</span>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
